@@ -4,11 +4,11 @@ type FooterListProps = {
 }
 
 const FooterList = ({children}:FooterListProps) => {
-  return (
+return (
     <div className='w-full sm:w-1/2 md:w-1/2 lg:w-1/6 mb-6 flex flex-col gap-2'>
-      {children}
+        {children}
     </div>
-  )
+)
 }
 
 export default FooterList
