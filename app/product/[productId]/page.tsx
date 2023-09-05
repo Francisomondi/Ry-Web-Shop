@@ -10,7 +10,7 @@ type Iparams = {
 }
 
 const Product = ({params}: {params: Iparams}) => {
-    console.log('params',params)
+   
     
 return (
     <div>
