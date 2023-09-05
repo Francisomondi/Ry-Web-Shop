@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import Container from './components/container'
+import Container from './components/Container'
 import HomeBanner from './components/HomeBanner'
 import { products } from '@/utils/Products'
-import { trancateText } from '@/utils/truncateText'
 import ProductCard from './components/products/ProductCard'
 
 export default function Home() {

@@ -1,12 +1,25 @@
+
+
+import Container from '@/app/components/Container'
+import { product } from '@/utils/product'
 import React from 'react'
+import ProductDetails from './ProductDetails'
 
-type Iparams = {}
+type Iparams = {
+    productId:string
+}
 
-const product = ({params}: {params: Iparams}) => {
+const Product = ({params}: {params: Iparams}) => {
     console.log('params',params)
-  return (
-    <div>product</div>
+    
+return (
+    <div>
+        <Container>
+            <ProductDetails product = {product}/>
+        </Container>
+    </div>
   )
 }
 
-export default product
+export default Product
+
