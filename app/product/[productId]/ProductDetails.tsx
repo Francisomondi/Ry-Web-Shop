@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Rating } from "@mui/material"
 import Button from '@/app/components/Button'
+import ProductImage from '@/app/components/products/ProductImage'
 
 type productDetailsProps = {
     product:any
@@ -46,7 +47,7 @@ const ProductDetails = ({product}: productDetailsProps) => {
 
 return (
     <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-12'>
-        <div>Images</div>
+        <ProductImage cartProduct={cartProduct} product={product}/>
         <div className='flex flex-col gap-1 text-slate-500 text-sm' >
             <h2 className='text-3xl font-medium text-slate-700'>{product.name}</h2>
             <div className='flex items-center gap-2'>
@@ -70,7 +71,7 @@ return (
             <Horizontal/>
             <div>Quality</div>
             <Horizontal/>
-            <div>
+            <div className='max-w-[300px]'>
                 <Button 
                 label='Add to Cart'
                 onClick={()=>{}}/>
