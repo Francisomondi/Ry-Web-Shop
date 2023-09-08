@@ -1,8 +1,9 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Rating } from "@mui/material"
 import Button from '@/app/components/Button'
 import ProductImage from '@/app/components/products/ProductImage'
+import SetColor from '@/app/components/products/SetColor'
 
 type productDetailsProps = {
     product:any
@@ -39,11 +40,19 @@ const ProductDetails = ({product}: productDetailsProps) => {
         brand: product.brand,
         selectedImage: {...product.images[0]},
         quantity: 1,
-        price: product.price,
+        price: product.price
     })
 
     const productRating= product.reviews.reduce((acc:number,item:any)=>
     item.rating + acc,0)/product.reviews.length
+
+
+    const handleColorSelect=useCallback((value:SelectedImgType)=>{
+        setCartProduct((prev)=>{
+            return {...prev,selectedImage:value}
+        })
+    }
+    ,[cartProduct.selectedImage])
 
 return (
     <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-12'>
@@ -67,7 +76,7 @@ return (
                 {product.inStock? 'In stock': 'Out of stock'}
             </div>
             <Horizontal/>
-            <div>Color</div>
+            <SetColor cartProduct={cartProduct} images={product.images} handleColorSelect={handleColorSelect}/>
             <Horizontal/>
             <div>Quality</div>
             <Horizontal/>

@@ -10,7 +10,7 @@ type Iparams = {
 }
 
 const Product = ({params}: {params: Iparams}) => {
-   
+
     
 return (
     <div>
@@ -18,7 +18,7 @@ return (
             <ProductDetails product = {product}/>
         </Container>
     </div>
-  )
+)
 }
 
 export default Product
