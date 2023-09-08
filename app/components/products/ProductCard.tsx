@@ -46,7 +46,7 @@ const ProductCard = ({data}: ProductCardProps) => {
               {trancateText(data.name)}
             </div>
             <div>
-              <Rating value={productRating}/>
+              <Rating value={productRating} readOnly/>
             </div>
             <div>{data.reviews.length} Reviews</div>
             <div className="font-semibold">{formatPrice(data.price)}</div>
