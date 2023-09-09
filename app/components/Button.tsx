@@ -16,6 +16,7 @@ type ButtonProps = {
 const Button = ({label,disabled,outline,small,custom,icon: Icon,onClick}: ButtonProps) => {
 return (
     <button
+    onClick={onClick}
     disabled={disabled}
     className={`disabled:opacity-70
     disabled:cursor-not-allowed

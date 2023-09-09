@@ -4,6 +4,7 @@ import { Rating } from "@mui/material"
 import Button from '@/app/components/Button'
 import ProductImage from '@/app/components/products/ProductImage'
 import SetColor from '@/app/components/products/SetColor'
+import { useCart } from '@/hooks/useCart'
 
 type productDetailsProps = {
     product:any
@@ -32,6 +33,8 @@ const Horizontal= ()=>{
 }
 
 const ProductDetails = ({product}: productDetailsProps) => {
+
+    const {handleAddProductToCart,cartProducts} = useCart()
     const [cartProduct, setCartProduct] = useState<CartProductType>({
         id: product.id,
         name: product.name,
@@ -42,6 +45,7 @@ const ProductDetails = ({product}: productDetailsProps) => {
         quantity: 1,
         price: product.price
     })
+    console.log(cartProducts)
 
     const productRating= product.reviews.reduce((acc:number,item:any)=>
     item.rating + acc,0)/product.reviews.length
@@ -83,7 +87,7 @@ return (
             <div className='max-w-[300px]'>
                 <Button 
                 label='Add to Cart'
-                onClick={()=>{}}/>
+                onClick={()=>handleAddProductToCart(cartProduct)}/>
             </div>
         </div>
     </div>
