@@ -13,9 +13,9 @@ const Avatar = ({src}: AvatarProps) => {
             <Image src={src} alt='avatar pic' width={30} height={30} className='rounded-full'/>
         )   
     }
-  return (
-  <FaUserCircle size={24}/>
-  )
+return (
+    <FaUserCircle size={24}/>
+)
 }
 
 export default Avatar
