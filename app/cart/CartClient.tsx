@@ -5,6 +5,7 @@ import React from 'react'
 import { MdArrowBack } from 'react-icons/md'
 import Heading from '../components/Heading'
 import Button from '../components/Button'
+import ItemContent from './ItemContent'
 
 type Props = {}
 
@@ -36,9 +37,7 @@ const CartClient = (props: Props) => {
             <div>
                 {cartProducts && cartProducts.map((item)=>{
                     return(
-                        <div key={item.id}>
-                            {item.name}
-                        </div>
+                        <ItemContent key={item.id} item={item}/>
                     )
                     
                 })}
