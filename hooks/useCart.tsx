@@ -7,6 +7,7 @@ type CartContextType = {
     cartProducts: CartProductType[] | null
     handleAddProductToCart: (product: CartProductType)=> void
     handleRemoveItemFromCart: (product: CartProductType)=> void
+    handleClearCart: ()=>void
 }
 
 type Props = {
@@ -56,12 +57,21 @@ export const CartContextprovider = (props:Props) => {
             localStorage.setItem('eShopCartItems', JSON.stringify(filteredProducts))
         }
     },[cartProducts])
+
+    const handleClearCart= useCallback(()=>{
+        setCartProducts(null)
+        setCartTotalQuantity(0)
+        toast.success('Cart cleared Successfully')
+        localStorage.setItem('eShopCartItems', JSON.stringify(null))
+        
+    },[cartProducts])
     
     const value = {
         cartTotalQuantity,
         cartProducts,
         handleAddProductToCart,
-        handleRemoveItemFromCart
+        handleRemoveItemFromCart,
+        handleClearCart
     }
 
     return(
