@@ -5,12 +5,15 @@ import { CartProductType } from '../product/[productId]/ProductDetails'
 import Link from 'next/link'
 import { trancateText } from '@/utils/truncateText'
 import Image from 'next/image'
+import { useCart } from '@/hooks/useCart'
 
 type ItemContentProps = {
   item: CartProductType
 }
 
 const ItemContent = ({item}: ItemContentProps) => {
+  const {handleRemoveItemFromCart}= useCart()
+
   return (
     <div className='grid
     grid-cols-5
@@ -33,7 +36,10 @@ const ItemContent = ({item}: ItemContentProps) => {
           </Link>
           <div>{item.selectedImage.color}</div>
           <div className='w-[70px]'>
-            <button className='text-slate-500 underline' onClick={()=>{}}>Remove</button>
+            <button className='text-slate-500 underline' 
+            onClick={()=>handleRemoveItemFromCart(item)}>
+              Remove
+            </button>
           </div>
         </div>
       </div>
