@@ -45,12 +45,13 @@ const ItemContent = ({item}: ItemContentProps) => {
       </div>
       <div className='justify-self-center'>{formatPrice(item.price)}</div>
       <div className='justify-self-center'>
-        {/** <setQuantity 
+        {/*<setQuantity 
         cartCounter={true}
         cartProduct={item}
         handleQuantityIncrease={()=>{}}
         handleQuantityDecrease={()=>{}}/>
         */}
+        {item.quantity}
         
       </div>
       <div className='justify-self-end font-semibold'>{formatPrice(item.price * item.quantity)}</div>
