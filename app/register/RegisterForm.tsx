@@ -6,6 +6,7 @@ import Input from "../components/inputs/Input"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import Button from "../components/Button"
 import Link from "next/link"
+import { AiOutlineGoogle } from "react-icons/ai"
 
 
 type Props = {}
@@ -28,6 +29,12 @@ const RegisterForm = (props: Props) => {
   return (
     <>
         <Heading title="Sign up for Ry-Interior E-Shop"/>
+        <Button 
+        outline 
+        label="Sign up with Google"
+        icon={AiOutlineGoogle}
+        onClick={()=>{}}
+        />
         <hr className="bg-slate-300 w-full h-px"/>
         <Input
         id="name"
