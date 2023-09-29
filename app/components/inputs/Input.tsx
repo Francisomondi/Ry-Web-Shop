@@ -43,7 +43,8 @@ return (
         disabled:cursor-not-allowed
         ${errors[id] ? 'border-rose-400': 'border-slate-400'}
         ${errors[id] ? 'focus:border-rose-400': 'focus:border-slate-400'}`}/>
-        <label htmlFor={id}
+        <label 
+        htmlFor={id}
         className={`
         absolute
         cursor-text
