@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
             if(!existingUser){
                 throw new Error('invalid email or password')
             }
-            const passwordMatch = await bcrypt.compare(credentials.password, existingUser.password)
+            const passwordMatch = await bcrypt.compare(credentials.password, existingUser.hashedPassword as string)
             if (!passwordMatch) {
                 throw new Error('invalid email or password')
             }
