@@ -21,6 +21,14 @@ export async function POST(request: Request){
     const body = await request.json()
     const {email,name,password} = body
 
+     //check if email exists
+     const existingEmail = await db.user.findUnique({
+        where: {email: email}
+    })
+    if (existingEmail) {
+        return NextResponse.json({user: null, messege: 'User with this Email already exists'}, {status: 409})
+    } 
+
     const hashedPassword = await bcrypt.hash(password,10)
 
     //create user
