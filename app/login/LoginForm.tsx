@@ -9,9 +9,9 @@ import Link from "next/link"
 import { AiOutlineGoogle } from "react-icons/ai"
 
 
-type Props = {}
 
-const LoginForm = (props: Props) => {
+
+const LoginForm = () => {
     const [isLoading, setIsLoading] = useState(false)
     const{register,handleSubmit,formState:{errors}} = useForm<FieldValues>({
         defaultValues:{

@@ -33,12 +33,13 @@ const RegisterForm = () => {
             toast.success('account created successfully')
 
             signIn("credentials", {
-                email:data.email,
+                email: data.email,
                 password: data.password,
                 redirect: false
-            }).then((callback)=>{
+            })
+            .then((callback)=>{
                 if (callback?.ok) {
-                    router.push('/cart')
+                    router.push("/cart")
                     router.refresh()
                     toast.success('successfully logged in')
                 }
