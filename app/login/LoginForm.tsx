@@ -29,8 +29,10 @@ const LoginForm = () => {
         signIn('credentials',{
             ...data,
             redirect:false
+
         }).then((callback)=>{
             setIsLoading(false)
+            
             if (callback?.ok) {
                 router.push("/cart")
                 router.refresh()

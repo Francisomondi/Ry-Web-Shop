@@ -6,10 +6,13 @@ import Link from 'next/link'
 import MenuItem from './MenuItem'
 import { signOut } from 'next-auth/react'
 import BackDrop from './BackDrop'
+import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
 const UserMenu = (props: Props) => {
+    const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
     const toggleOpen = useCallback(
     () => {
@@ -43,6 +46,9 @@ return (
                         <MenuItem onClick={()=>{
                             toggleOpen()
                             signOut()
+                            router.push("/")
+                            toast.success('successfully logged out')
+                            
                         }}>Logout</MenuItem>
                     </div>
 
