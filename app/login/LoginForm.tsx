@@ -69,7 +69,9 @@ return (
         outline 
         label="Continue with Google"
         icon={AiOutlineGoogle}
-        onClick={()=>{}}
+        onClick={()=>{
+            signIn("google")
+        }}
         />
         <hr className="bg-slate-300 w-full h-px"/>
         
