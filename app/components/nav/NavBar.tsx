@@ -5,6 +5,7 @@ import { Redressed } from "next/font/google";
 import CartCount from './CartCount';
 import UserMenu from './UserMenu';
 import { getCurrentUser } from '@/actions/getCurrentUser';
+import Image from 'next/image';
 
 const redressed = Redressed({subsets: ['latin'],weight: ['400']})
 
@@ -18,7 +19,8 @@ const NavBar = async () => {
         <Container>
           <div className='flex items-center justify-between gap-3 md:gap-0'>
             <Link href={'/'}>
-              Ry-Interior
+              <Image src="/../../assets/images/logo.png" alt='ry interiror shop' fill className='object-contain'/>
+              
             </Link>
             <div className={`${'hidden md:block'}`}>Search</div>
             <div className='flex items-center gap-8 md:gap-12'>
