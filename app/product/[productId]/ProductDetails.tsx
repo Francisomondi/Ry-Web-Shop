@@ -7,6 +7,7 @@ import SetColor from '@/app/components/products/SetColor'
 import { useCart } from '@/hooks/useCart'
 import { MdCheckCircle } from 'react-icons/md'
 import { useRouter } from 'next/navigation'
+import SetQuantity from '@/app/components/products/SetQuantity'
 
 type productDetailsProps = {
     product:any
@@ -75,6 +76,33 @@ const ProductDetails = ({product}: productDetailsProps) => {
     }
     ,[cartProduct.selectedImage])
 
+    const handleQuantityIncrease = useCallback(
+() => {
+    if (cartProduct.quantity ===99) {
+        return
+    }
+        setCartProduct((prev)=> {
+            return {...prev, quantity: ++prev.quantity}
+        })
+    },
+    [cartProduct],
+    )
+    
+    const handleQuantityDecrease = useCallback(
+    () => {
+        if (cartProduct.quantity ===1) {
+            return
+        }
+        setCartProduct((prev)=> {
+            return {...prev, quantity: --prev.quantity}
+        })
+    },
+    [cartProduct],
+    )
+    
+
+
+
 return (
     <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-12'>
         <ProductImage cartProduct={cartProduct} product={product} handleColorSelect={handleColorSelect}/>
@@ -111,7 +139,10 @@ return (
             <>
                 <SetColor cartProduct={cartProduct} images={product.images} handleColorSelect={handleColorSelect}/>
                 <Horizontal/>
-                <div>Quality</div>
+                <SetQuantity 
+                cartProduct={cartProduct} 
+                handleQuantityIncrease={handleQuantityIncrease} 
+                handleQuantityDecrease={handleQuantityDecrease}/>
                 <Horizontal/>
                 <div className='max-w-[300px]'>
                     <Button 
@@ -119,7 +150,7 @@ return (
                     onClick={()=>handleAddProductToCart(cartProduct)}/>
                 </div>
             </>)}
-           
+        
         </div>
     </div>
 )

@@ -67,7 +67,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({currentUser}) => {
     }
 
     if (currentUser) {
-        return <p className="text-center">User Arealdy Logged In. Redirecting...</p>
+        return <p className="text-center">User Aready Logged In. Redirecting...</p>
     }
 
     
